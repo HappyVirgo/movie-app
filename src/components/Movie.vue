@@ -100,20 +100,15 @@ export default {
   },
 
   mounted () {
-    movieApi.fetchSingleMovie(this.id)
-      .then(response => {
-        this.singleMovie = response
-        this.ratings = this.singleMovie.Ratings
-        this.ratings.forEach(function (element) {
-          element.Value = parseFloat(element.Value.split(/\/|%/)[0])
-          element.Value = element.Value <= 10 ? element.Value / 2 : element.Value / 20
-        }
-        )
-        this.loading = false
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    let response = movieApi.fetchSingleMovie(this.id)
+    this.singleMovie = response
+    this.ratings = this.singleMovie.Ratings
+    this.ratings.forEach(function (element) {
+      element.Value = parseFloat(element.Value.split(/\/|%/)[0])
+      element.Value = element.Value <= 10 ? element.Value / 2 : element.Value / 20
+    }
+    )
+    this.loading = false
   },
   methods: {
     back () {
