@@ -4,7 +4,7 @@
       <v-toolbar-title class="headline text-uppercase">
         <router-link
         to='/'
-        tag='span'
+        tag='span' 
         style='cursor: pointer'>
         Movie Man
         </router-link>
